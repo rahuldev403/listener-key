@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ url: process.env.DATABASE_URL });
 
 async function main() {
   // 1. Create a Warehouse
