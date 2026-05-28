@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { sampleBooks } from "@/lib/actions/constants";
+import { sampleBooks } from "@/lib/constants";
 import BookCard from "./BookCard";
 import Link from "next/link";
 
