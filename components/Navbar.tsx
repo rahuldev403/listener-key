@@ -3,13 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  Show,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-  useUser,
-} from "@clerk/nextjs";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -20,7 +14,6 @@ const navItems = [
 
 const Navbar = () => {
   const pathName = usePathname();
-  const { user } = useUser();
 
   return (
     <header className="w-full fixed top-0 left-0 z-50 bg-(--bg-primary)">
@@ -57,11 +50,6 @@ const Navbar = () => {
             <Show when="signed-in">
               <div className="nav-user-link">
                 <UserButton />
-                {user?.firstName && (
-                  <Link href="/subscriptions" className="nav-user-name">
-                    {user.firstName}
-                  </Link>
-                )}
               </div>
             </Show>
           </div>
