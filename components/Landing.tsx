@@ -14,13 +14,14 @@ export default function Landing() {
           {/* Banner Left Content */}
           <div className="w-full md:w-[55%] flex flex-col justify-center items-start z-10 pt-4 md:pt-0">
             <h1 className="text-[3rem] md:text-[4.5rem] font-serif text-[#382110] mb-8 leading-[1.05]">
-              The Big Books <br />
-              of Summer <br />
-              (and Beyond!)
+              Talk to your books. <br />
+              Learn faster.
             </h1>
-            <Button className="rounded-full px-8 py-5 text-base font-semibold bg-[#382110] hover:bg-[#2a180c] text-white">
-              Discover more
-            </Button>
+            <SignUpButton mode="modal" forceRedirectUrl="/">
+              <Button className="rounded-full px-8 py-5 text-base font-semibold bg-[#382110] hover:bg-[#2a180c] text-white">
+                Discover more
+              </Button>
+            </SignUpButton>
           </div>
 
           {/* Banner Illustrations Placeholders */}
@@ -54,13 +55,13 @@ export default function Landing() {
             </h2>
 
             <div className="space-y-3 mb-6">
-              <SignUpButton mode="modal">
+              <SignUpButton mode="modal" forceRedirectUrl="/">
                 <Button className="w-full bg-[#f4d17f] hover:bg-[#ecd059] text-[#111111] py-6 shadow-none text-[15px]">
                   Continue with Google
                 </Button>
               </SignUpButton>
 
-              <SignUpButton mode="modal">
+              <SignUpButton mode="modal" forceRedirectUrl="/">
                 <Button className="w-full bg-[#382110] hover:bg-[#2a180c] text-white py-6 text-[15px] shadow-none">
                   Sign up with email
                 </Button>
@@ -68,7 +69,7 @@ export default function Landing() {
             </div>
 
             <p className="text-[11px] text-center text-[#767676] mb-6 leading-[1.6]">
-              By creating an account, you agree to the Goodreads{" "}
+              By creating an account, you agree to listner's-key{" "}
               <a href="#" className="text-[#00635d] hover:underline">
                 Terms of Service
               </a>{" "}
@@ -83,7 +84,7 @@ export default function Landing() {
               <span className="text-[13px] text-[#333333]">
                 Already a member?{" "}
               </span>
-              <SignInButton mode="modal">
+              <SignInButton mode="modal" forceRedirectUrl="/">
                 <button className="text-[13px] text-[#00635d] hover:underline font-semibold">
                   Sign In
                 </button>
@@ -98,21 +99,20 @@ export default function Landing() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-4xl">
           <div>
             <h3 className="text-[20px] font-bold mb-4 text-[#181818]">
-              Deciding what to read next?
+              Upload your PDF
             </h3>
             <p className="text-[#181818] leading-[1.6] text-[14px]">
-              You're in the right place. Tell us what titles or genres you've
-              enjoyed in the past, and we'll give you surprisingly insightful
-              recommendations.
+              We'll parse it and prepare it for interactive chat. Talk to an AI
+              assistant grounded natively in your material.
             </p>
           </div>
           <div>
             <h3 className="text-[20px] font-bold mb-4 text-[#181818]">
-              What are your friends reading?
+              Voice conversations
             </h3>
             <p className="text-[#181818] leading-[1.6] text-[14px]">
-              Chances are your friends are discussing their favorite (and least
-              favorite) books on Goodreads.
+              Speak naturally while you learn. Get explanations, summaries, and
+              quick recall on any book you upload without typing a word.
             </p>
           </div>
         </div>
@@ -120,16 +120,16 @@ export default function Landing() {
 
       {/* Bottom Content Grid */}
       <section className="max-w-[1240px] mx-auto px-6 flex flex-col md:flex-row gap-8 items-start">
-        {/* Books Widget */}
-        <div className="flex-1 w-full bg-[#f4f1ea] rounded-xl p-8 border border-[#e6e2d6]">
+        {/* Features Widget */}
+        <div className="w-full bg-[#f4f1ea] rounded-xl p-8 border border-[#e6e2d6]">
           <h3 className="text-[18px] mb-6 text-[#181818]">
             What will <span className="italic font-serif">you</span> discover?
           </h3>
 
-          <div className="flex flex-wrap items-end gap-x-[20px] gap-y-6">
+          <div className="flex flex-wrap items-center gap-x-[20px] gap-y-6">
             <div className="flex flex-col gap-3">
               <span className="text-[13px] text-[#181818]">
-                Because Brian liked...
+                Start with a book...
               </span>
               <div className="flex gap-[12px]">
                 <div className="w-[100px] h-[155px] bg-[#d7e1e6] flex items-center justify-center shadow-md">
@@ -139,46 +139,38 @@ export default function Landing() {
                     Placeholder
                   </span>
                 </div>
-                <div className="w-[100px] h-[155px] bg-[#d1e0d3] flex items-center justify-center shadow-md">
-                  <span className="text-[11px] text-[#4f6752] font-semibold text-center leading-tight">
-                    Book Cover
-                    <br />
-                    Placeholder
-                  </span>
-                </div>
-                <div className="w-[100px] h-[155px] bg-[#ced5df] flex items-center justify-center shadow-md">
-                  <span className="text-[11px] text-[#4b5563] font-semibold text-center leading-tight">
-                    Book Cover
-                    <br />
-                    Placeholder
-                  </span>
-                </div>
-                <div className="w-[100px] h-[155px] bg-[#e3d1c5] flex items-center justify-center shadow-md">
-                  <span className="text-[11px] text-[#715c4d] font-semibold text-center leading-tight">
-                    Book Cover
-                    <br />
-                    Placeholder
+              </div>
+            </div>
+
+            <div className="text-[#d8d8d8] font-bold mx-2 text-3xl">➔</div>
+
+            <div className="flex flex-col gap-3">
+              <span className="text-[13px] text-[#181818]">
+                Ask a question...
+              </span>
+              <div className="flex gap-[12px]">
+                <div className="w-[200px] h-[155px] bg-[#c1def0] border border-[#a8c9e0] flex items-center justify-center shadow-md p-4">
+                  <span className="text-[14px] text-[#497592] font-semibold text-center leading-relaxed">
+                    "Can you summarize the main argument of chapter 3?"
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="text-[#d8d8d8] font-bold mx-2 mb-16 text-3xl">
-              ➔
-            </div>
+            <div className="text-[#d8d8d8] font-bold mx-2 text-3xl">➔</div>
 
             <div className="flex flex-col gap-3">
-              <span className="text-[13px] text-[#181818]">He discovered:</span>
-              <div className="flex gap-3">
-                <div className="w-25 h-38.75 bg-[#c1def0] flex items-center justify-center shadow-md">
-                  <span className="text-[11px] text-[#497592] font-semibold text-center leading-tight">
-                    Book Cover
-                    <br />
-                    Placeholder
+              <span className="text-[13px] text-[#181818]">
+                Get an answer instantly.
+              </span>
+              <div className="flex gap-[12px]">
+                <div className="w-[250px] h-[155px] bg-[#e3eed4] border border-[#c2dcb0] flex flex-col items-center justify-center shadow-md p-4 space-y-4">
+                  <span className="text-[14px] text-[#4a6b32] font-semibold text-center leading-relaxed">
+                    "Certainly! Chapter 3 argues that..."
                   </span>
-                </div>
-                <div className="text-[13px] font-bold flex items-center text-[#181818] ml-2">
-                  Nonfiction, History
+                  <span className="text-[11px] text-[#6d8a59] font-medium text-center leading-tight border border-[#6d8a59] rounded-full px-3 py-1">
+                    Audio Transcript Placeholder
+                  </span>
                 </div>
               </div>
             </div>

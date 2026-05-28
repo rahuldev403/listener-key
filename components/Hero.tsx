@@ -40,7 +40,7 @@ const Hero = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex-1 w-full max-w-[320px]">
+        <div className="flex-1 w-full lg:min-w-[350px] max-w-[400px]">
           <div className="bg-white rounded-xl p-8 space-y-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
             <div className="flex items-start gap-4">
               <div className="w-8 h-8 rounded-full border border-primary flex items-center justify-center shrink-0 mt-0.5">

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Show, UserButton } from "@clerk/nextjs";
+import { Show, UserButton, SignInButton, useAuth } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -14,6 +14,7 @@ const navItems = [
 
 const Navbar = () => {
   const pathName = usePathname();
+  const { isSignedIn } = useAuth();
 
   return (
     <header className="w-full fixed top-0 left-0 z-50 bg-(--bg-primary)">
@@ -32,6 +33,23 @@ const Navbar = () => {
           {navItems.map(({ label, href }) => {
             const isActive =
               pathName === href || (href !== "/" && pathName.startsWith(href));
+
+            if (!isSignedIn && href !== "/") {
+              return (
+                <SignInButton mode="modal" key={label} forceRedirectUrl="/">
+                  <button
+                    className={cn(
+                      "nav-link-base",
+                      isActive
+                        ? "nav-link-active"
+                        : "text-black hover:opacity-70",
+                    )}
+                  >
+                    {label}
+                  </button>
+                </SignInButton>
+              );
+            }
 
             return (
               <Link

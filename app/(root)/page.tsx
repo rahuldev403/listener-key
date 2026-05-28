@@ -23,7 +23,7 @@ const Page = async ({
   const books = bookResults.success ? (bookResults.data ?? []) : [];
 
   return (
-    <main className="container">
+    <main className="w-full pt-[94px] pb-18 min-h-screen">
       <Hero />
 
       <section className="wrapper">
