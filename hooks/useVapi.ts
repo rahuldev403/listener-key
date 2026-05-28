@@ -143,12 +143,16 @@ export function useVapi(book: IBook) {
         }
       },
 
-      message: (message: {
-        type: string;
-        role: string;
-        transcriptType: string;
-        transcript: string;
-      }) => {
+      message: (message: any) => {
+        if (message.type === "status-update" && message.status) {
+          if (
+            ["listening", "thinking", "speaking"].includes(message.status) &&
+            !isStoppingRef.current
+          ) {
+            setStatus(message.status as CallStatus);
+          }
+        }
+
         if (message.type !== "transcript") return;
 
         // User finished speaking → AI is thinking
@@ -162,6 +166,7 @@ export function useVapi(book: IBook) {
         // Partial user transcript → show real-time typing
         if (message.role === "user" && message.transcriptType === "partial") {
           setCurrentUserMessage(message.transcript);
+          if (!isStoppingRef.current) setStatus("listening");
           return;
         }
 
@@ -171,12 +176,16 @@ export function useVapi(book: IBook) {
           message.transcriptType === "partial"
         ) {
           setCurrentMessage(message.transcript);
+          if (!isStoppingRef.current) setStatus("speaking");
           return;
         }
 
         // Final transcript → add to messages
         if (message.transcriptType === "final") {
-          if (message.role === "assistant") setCurrentMessage("");
+          if (message.role === "assistant") {
+            setCurrentMessage("");
+            if (!isStoppingRef.current) setStatus("listening");
+          }
           if (message.role === "user") setCurrentUserMessage("");
 
           setMessages((prev) => {
