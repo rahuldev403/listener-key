@@ -2,6 +2,7 @@ import BookCard from "@/components/BookCard";
 import { getAllBooks } from "@/lib/actions/book.actions";
 import Search from "@/components/Search";
 import Hero from "@/components/Hero.tsx";
+import Navbar from "@/components/Navbar";
 
 const Page = async ({
   searchParams,
@@ -15,6 +16,7 @@ const Page = async ({
 
   return (
     <main className="wrapper container">
+      <Navbar/>
       <Hero />
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-10">
