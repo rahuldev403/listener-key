@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="wrapper mt-23.5 mb-10 md:mb-16">
+    <section className="wrapper mb-10 md:mb-16">
       <div className="bg-[#EEDDCC] rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10">
         {/* Left Side */}
         <div className="flex-1 space-y-6 max-w-sm">

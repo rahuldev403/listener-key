@@ -1,4 +1,4 @@
-import { PricingTable } from "@clerk/nextjs";
+import PricingTableWithFallback from "@/components/PricingTableWithFallback";
 
 export default function SubscriptionsPage() {
   return (
@@ -11,7 +11,7 @@ export default function SubscriptionsPage() {
       </div>
 
       <div className="clerk-pricing-container">
-        <PricingTable />
+        <PricingTableWithFallback />
       </div>
     </div>
   );
