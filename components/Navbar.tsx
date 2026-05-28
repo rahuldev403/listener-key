@@ -54,7 +54,7 @@ const Navbar = () => {
             </Show>
             <Show when="signed-in">
               <div className="nav-user-link">
-                <UserButton />
+                <UserButton afterSignOutUrl="/" />
               </div>
             </Show>
           </div>
